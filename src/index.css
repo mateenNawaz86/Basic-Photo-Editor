@@ -1,0 +1,83 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "image sidebar"
+    "slider sidebar";
+  height: 100vh;
+  width: 100vw;
+  background-color: #dcdcdc;
+}
+
+.img {
+  grid-area: image;
+  background-image: url("https://images.pexels.com/photos/1770809/pexels-photo-1770809.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-position: top center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #5f9ea0;
+  border-left: 1px solid #6495ed;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding-top: 1rem;
+}
+
+.sidebar-item {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #5f9ea0;
+  padding: 1rem;
+  transition: all 0.3s;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.sidebar-item::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  background-color: #483d8b;
+  bottom: 0;
+  left: 10%;
+  width: 85%;
+}
+
+.sidebar-item:last-child::after {
+  display: none;
+}
+
+.sidebar-item:hover,
+.sidebar-item:focus {
+  background-color: #6495ed;
+  color: #fff;
+}
+
+.sidebar-item.active {
+  background-color: #5f9ea0;
+}
+
+.slider-container {
+  margin: 1rem;
+  padding: 1.5rem;
+  grid-area: slider;
+}
+
+.slider-container input {
+  width: 100%;
+  cursor: pointer;
+}
